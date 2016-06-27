@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.maitaidan.dao.MockDao">
+    <resultMap id="mock" type="com.maitaidan.model.Mock">
+        <id property="id" column="id"/>
+        <result property="firstBusinessLine" column="busi_line_1"/>
+        <result property="secondBusinessLine" column="busi_line_2"/>
+        <result property="uri" column="uri"/>
+        <result property="param" column="param"/>
+        <result property="defaultResult" column="default"/>
+        <result property="desc" column="description"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="useParam" column="use_param"/>
+        <result property="recordLog" column="record_log"/>
+    </resultMap>
+    
+    <select id="getMockByURI" parameterType="java.lang.String" resultMap="mock">
+        SELECT * FROM mock WHERE uri=#{uri}
+    </select>
+</mapper>

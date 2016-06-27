@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.maitaidan.dao.MockParamDao">
+    <resultMap id="mockParam" type="com.maitaidan.model.MockParam">
+        <id property="id" column="id"/>
+        <result property="mockId" column="mock_id"/>
+        <result property="expectParam" column="param_expect"/>
+        <result property="result" column="result"/>
+    </resultMap>
+    
+    <select id="getMockParamById" parameterType="int" resultMap="mockParam">
+        SELECT id,mock_id,param_expect,result FROM param_result WHERE mock_id=#{mockId}
+    </select>
+</mapper>
